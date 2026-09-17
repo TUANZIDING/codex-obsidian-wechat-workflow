@@ -1,0 +1,17 @@
+content_id: 2026-09-17-example
+title: "待确认标题"
+channel: wechat
+status: preview
+audience: "待确认读者"
+source_notes:
+  - "<source-note-path>"
+article_file: article.md
+cover: assets/00-cover.png
+body_assets: []
+source_map: source-map.tsv
+claim_ledger: claim-ledger.tsv
+qa_report: qa-report.md
+publish_checklist: publish-checklist.md
+user_approval: pending
+published_url: null
+

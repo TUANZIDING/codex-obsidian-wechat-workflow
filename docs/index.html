@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#071722" />
+    <meta
+      name="description"
+      content="Codex + Obsidian 医学科研微信公众号内容创作工作流预览版。"
+    />
+    <title>Codex + Obsidian｜微信公众号内容创作工作流</title>
+    <style>
+      :root {
+        --navy: #071722;
+        --navy-2: #0b2430;
+        --green: #2f6b4f;
+        --green-bright: #5c9b72;
+        --chalk: #f5f1e8;
+        --paper: #eee9de;
+        --amber: #e7a34a;
+        --orange: #d86a3a;
+        --slate: #b7cbd1;
+        --ink: #14202b;
+        --muted: #617079;
+        --line: rgba(20, 32, 43, 0.16);
+        --shadow: 0 24px 70px rgba(7, 23, 34, 0.18);
+        --radius: 18px;
+        --display: "Arial Narrow", "Helvetica Neue Condensed", "PingFang SC", sans-serif;
+        --body: "PingFang SC", "Noto Sans CJK SC", -apple-system, BlinkMacSystemFont, sans-serif;
+        --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--chalk);
+        font-family: var(--body);
+        line-height: 1.7;
+      }
+      a { color: inherit; }
+      .shell { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+      .eyebrow {
+        color: var(--amber);
+        font: 700 0.78rem/1 var(--mono);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .mono { font-family: var(--mono); }
+      .muted { color: var(--muted); }
+
+      .hero {
+        min-height: 690px;
+        color: var(--chalk);
+        background:
+          linear-gradient(90deg, rgba(7, 23, 34, 0.97) 0%, rgba(7, 23, 34, 0.78) 42%, rgba(7, 23, 34, 0.18) 100%),
+          url("./assets/workflow-hero.png") center / cover;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 0;
+        height: 90px;
+        background: linear-gradient(transparent, var(--chalk));
+        pointer-events: none;
+      }
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 26px 0;
+        position: relative;
+        z-index: 1;
+      }
+      .wordmark { display: flex; align-items: center; gap: 12px; font-weight: 700; }
+      .mark {
+        display: grid;
+        place-items: center;
+        width: 38px;
+        height: 38px;
+        border: 1px solid rgba(231, 163, 74, 0.7);
+        color: var(--amber);
+        font: 700 0.75rem/1 var(--mono);
+        transform: rotate(-3deg);
+      }
+      .topbar nav { display: flex; gap: 22px; font-size: 0.88rem; }
+      .topbar nav a { color: var(--slate); text-decoration: none; }
+      .topbar nav a:hover { color: var(--chalk); }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(320px, 0.86fr) minmax(360px, 1.14fr);
+        align-items: end;
+        min-height: 560px;
+        padding: 62px 0 112px;
+        position: relative;
+        z-index: 1;
+      }
+      .hero-copy { max-width: 600px; }
+      h1, h2, h3, p { margin-top: 0; }
+      h1 {
+        margin: 18px 0 22px;
+        font: 700 clamp(2.7rem, 6vw, 5.3rem)/0.98 var(--display);
+        letter-spacing: -0.055em;
+      }
+      .hero-lede { max-width: 540px; color: var(--slate); font-size: clamp(1rem, 2vw, 1.18rem); }
+      .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        padding: 0 18px;
+        border: 1px solid rgba(245, 241, 232, 0.32);
+        border-radius: 999px;
+        color: var(--chalk);
+        text-decoration: none;
+        font-weight: 700;
+        transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+      }
+      .button:hover { transform: translateY(-2px); border-color: var(--amber); }
+      .button.primary { border-color: var(--amber); color: var(--navy); background: var(--amber); }
+      .button.secondary { color: var(--chalk); background: rgba(7, 23, 34, 0.36); }
+      .hero-note {
+        align-self: end;
+        justify-self: end;
+        width: min(360px, 100%);
+        padding: 18px;
+        border-left: 3px solid var(--amber);
+        background: rgba(7, 23, 34, 0.66);
+        backdrop-filter: blur(8px);
+      }
+      .hero-note strong { display: block; margin-bottom: 8px; color: var(--chalk); }
+      .hero-note p { margin: 0; color: var(--slate); font-size: 0.9rem; }
+
+      .section { padding: 92px 0; }
+      .section-header { display: flex; justify-content: space-between; gap: 32px; align-items: end; margin-bottom: 34px; }
+      .section-header h2 { max-width: 650px; margin: 10px 0 0; font: 700 clamp(2rem, 4vw, 3.5rem)/1.02 var(--display); letter-spacing: -0.04em; }
+      .section-header p { max-width: 390px; margin: 0; color: var(--muted); }
+      .board {
+        overflow: hidden;
+        border: 1px solid rgba(245, 241, 232, 0.18);
+        border-radius: var(--radius);
+        background: var(--navy);
+        box-shadow: var(--shadow);
+      }
+      .board-head { display: flex; justify-content: space-between; align-items: center; padding: 22px 26px; color: var(--chalk); border-bottom: 1px solid rgba(245, 241, 232, 0.16); }
+      .board-head p { margin: 0; color: var(--slate); font-size: 0.87rem; }
+      .board-head .status { color: var(--amber); font: 700 0.75rem/1 var(--mono); }
+      .flowchart { display: block; width: 100%; height: auto; min-height: 300px; padding: 20px; }
+      .flowchart text { font-family: var(--body); }
+      .flowchart .tiny { font: 700 12px var(--mono); letter-spacing: 0.08em; }
+      .flowchart .label { font-size: 18px; font-weight: 700; }
+      .flowchart .sub { fill: #b7cbd1; font-size: 13px; }
+      .flowchart .node { fill: #0b2430; stroke: #b7cbd1; stroke-width: 1.2; }
+      .flowchart .node.active { stroke: #e7a34a; }
+      .flowchart .route { fill: none; stroke: #e7a34a; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 1 12; }
+      .flowchart .yard { stroke: rgba(245, 241, 232, 0.18); stroke-width: 1; }
+      .flowchart .goal { stroke: #e7a34a; stroke-width: 5; }
+      .flowchart .flag { fill: #d86a3a; }
+
+      .station-grid { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 14px; gap: 12px; }
+      .station { padding: 18px; min-height: 170px; border-top: 3px solid var(--green); background: #fffdf8; }
+      .station:nth-child(2) { border-color: var(--slate); }
+      .station:nth-child(3) { border-color: var(--amber); }
+      .station:nth-child(4) { border-color: var(--orange); }
+      .station .number { color: var(--muted); font: 700 0.8rem/1 var(--mono); }
+      .station h3 { margin: 22px 0 8px; font-size: 1.18rem; }
+      .station p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+
+      .principles { background: var(--paper); }
+      .principle-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+      .principle { padding: 22px; border: 1px solid var(--line); background: rgba(255, 253, 248, 0.48); }
+      .principle .icon { color: var(--green); font: 700 1.45rem/1 var(--mono); }
+      .principle h3 { margin: 20px 0 7px; font-size: 1.05rem; }
+      .principle p { margin: 0; color: var(--muted); font-size: 0.89rem; }
+
+      .quick-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 42px; align-items: start; }
+      .quick-grid h2 { margin: 10px 0 18px; font: 700 clamp(2rem, 4vw, 3.2rem)/1 var(--display); letter-spacing: -0.04em; }
+      .steps { display: grid; gap: 10px; counter-reset: step; }
+      .step { display: grid; grid-template-columns: 38px 1fr; gap: 14px; align-items: start; padding: 14px 0; border-bottom: 1px solid var(--line); }
+      .step::before { counter-increment: step; content: counter(step, decimal-leading-zero); display: grid; place-items: center; width: 34px; height: 34px; color: var(--navy); background: var(--amber); font: 700 0.8rem/1 var(--mono); }
+      .step strong { display: block; margin-bottom: 2px; }
+      .step span { color: var(--muted); font-size: 0.9rem; }
+      .example-card { padding: 28px; border: 1px solid rgba(47, 107, 79, 0.3); background: linear-gradient(135deg, #e5efe8, #f8f3e8); }
+      .example-card h3 { margin: 14px 0 10px; font-size: 1.45rem; }
+      .example-card p { color: #466055; }
+      .example-card a { color: var(--green); font-weight: 700; }
+      .tag-row { display: flex; flex-wrap: wrap; gap: 7px; }
+      .tag { padding: 5px 9px; color: var(--green); border: 1px solid rgba(47, 107, 79, 0.3); font: 700 0.72rem/1 var(--mono); }
+
+      .release { color: var(--chalk); background: var(--navy); }
+      .release-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+      .release-card { padding: 24px; border: 1px solid rgba(245, 241, 232, 0.16); background: rgba(11, 36, 48, 0.75); }
+      .release-card h3 { margin: 0 0 14px; }
+      .release-card ul { margin: 0; padding-left: 18px; color: var(--slate); }
+      .release-card li + li { margin-top: 7px; }
+      .release-card.ready { border-top: 3px solid var(--green-bright); }
+      .release-card.waiting { border-top: 3px solid var(--amber); }
+      footer { padding: 28px 0 36px; color: var(--muted); font-size: 0.82rem; }
+      footer .shell { display: flex; justify-content: space-between; gap: 20px; }
+
+      @media (max-width: 820px) {
+        .hero { min-height: 790px; background-position: 60% center; }
+        .topbar nav { display: none; }
+        .hero-grid, .quick-grid { grid-template-columns: 1fr; }
+        .hero-grid { align-items: start; padding-top: 76px; }
+        .hero-note { justify-self: start; margin-top: 54px; }
+        .station-grid, .principle-grid { grid-template-columns: repeat(2, 1fr); }
+        .release-grid { grid-template-columns: 1fr; }
+        .section-header { display: block; }
+        .section-header p { margin-top: 16px; }
+      }
+      @media (max-width: 520px) {
+        .shell { width: min(100% - 28px, 1180px); }
+        .section { padding: 64px 0; }
+        .hero { min-height: 760px; }
+        .hero-grid { padding-bottom: 106px; }
+        h1 { font-size: 3.2rem; }
+        .station-grid, .principle-grid { grid-template-columns: 1fr; }
+        .board-head { display: block; }
+        .board-head .status { display: block; margin-bottom: 9px; }
+        .flowchart { min-width: 680px; }
+        .board { overflow-x: auto; }
+        footer .shell { display: block; }
+        footer p { margin: 8px 0 0; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="hero" id="top">
+      <div class="shell">
+        <div class="topbar">
+          <div class="wordmark"><span class="mark">OC</span><span>内容创作工作流 / PREVIEW</span></div>
+          <nav aria-label="页面导航">
+            <a href="#workflow">工作流</a>
+            <a href="#principles">边界</a>
+            <a href="#quick-start">快速开始</a>
+            <a href="../README.md">文档</a>
+          </nav>
+        </div>
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="eyebrow">LOCAL-FIRST · EVIDENCE-GOVERNED · HUMAN-APPROVED</div>
+            <h1>把科研素材<br />推进成可发布内容</h1>
+            <p class="hero-lede">用 Obsidian 保存长期知识，用 Codex 完成研究提炼、文章写作和视觉编排，再把每一次证据核对与人工确认留在发布线之前。</p>
+            <div class="hero-actions">
+              <a class="button primary" href="#workflow">查看工作流 ↓</a>
+              <a class="button secondary" href="../docs/workflow.md">阅读操作文档</a>
+            </div>
+          </div>
+          <aside class="hero-note" aria-label="预览状态">
+            <strong>当前版本：本地预览版</strong>
+            <p>视觉系统已采用“医学研究工作台 × 美式橄榄球战术板”。GitHub 公开、仓库上传和微信公众号发布仍由作者逐项确认。</p>
+          </aside>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section" id="workflow">
+        <div class="shell">
+          <div class="section-header">
+            <div>
+              <div class="eyebrow" style="color: var(--green)">THE DRIVE / 01—04</div>
+              <h2>每一步都有自己的码线，也有自己的责任边界。</h2>
+            </div>
+            <p>内容包像一个沿球场推进的球：可以继续推进，但不能跳过证据、医学、隐私、版权和人工批准。</p>
+          </div>
+
+          <div class="board">
+            <div class="board-head">
+              <div><span class="status">PLAYBOOK / CONTENT CREATION</span><p>从来源笔记到受控发布端</p></div>
+              <div class="mono" style="color: var(--slate); font-size: .78rem">GOAL LINE = USER APPROVAL</div>
+            </div>
+            <svg class="flowchart" viewBox="0 0 1100 360" role="img" aria-labelledby="flow-title flow-desc">
+              <title id="flow-title">Codex 与 Obsidian 微信公众号内容创作流程图</title>
+              <desc id="flow-desc">来源笔记经过 Codex 研究提炼和写作，再经过证据、医学、版权与隐私检查，最后由用户确认后进入微信公众号；GitHub 只保存可公开的工作流与示例。</desc>
+              <g aria-hidden="true">
+                <line class="yard" x1="40" y1="60" x2="1060" y2="60" />
+                <line class="yard" x1="40" y1="300" x2="1060" y2="300" />
+                <line class="yard" x1="260" y1="45" x2="260" y2="315" />
+                <line class="yard" x1="520" y1="45" x2="520" y2="315" />
+                <line class="yard" x1="780" y1="45" x2="780" y2="315" />
+                <line class="goal" x1="1012" y1="30" x2="1012" y2="330" />
+                <path class="route" d="M130 184 C180 118, 220 250, 300 184 S420 118, 560 184 S690 250, 820 184 S930 120, 1000 184" />
+                <circle cx="130" cy="184" r="7" fill="#5c9b72" />
+                <circle cx="390" cy="184" r="7" fill="#b7cbd1" />
+                <circle cx="650" cy="184" r="7" fill="#e7a34a" />
+                <circle cx="870" cy="184" r="7" fill="#d86a3a" />
+                <circle cx="1000" cy="184" r="7" fill="#e7a34a" />
+                <path class="flag" d="M640 86 h32 l-12 30 h-20 z" />
+                <path d="M643 86 V70" stroke="#d86a3a" stroke-width="2" />
+                <circle cx="895" cy="184" r="23" fill="#e7a34a" />
+                <path d="M881 184 h28 M886 175 l18 18 M904 175 l-18 18" stroke="#071722" stroke-width="2" />
+              </g>
+              <g>
+                <rect class="node" x="55" y="110" width="150" height="62" rx="8" />
+                <text class="tiny" x="72" y="133" fill="#5c9b72">01 / SOURCE</text>
+                <text class="label" x="72" y="157" fill="#f5f1e8">Obsidian</text>
+                <text class="sub" x="72" y="197">来源、笔记、经验</text>
+
+                <rect class="node" x="310" y="110" width="160" height="62" rx="8" />
+                <text class="tiny" x="328" y="133" fill="#b7cbd1">02 / PLAY</text>
+                <text class="label" x="328" y="157" fill="#f5f1e8">Codex</text>
+                <text class="sub" x="328" y="197">提炼、选题、写作</text>
+
+                <rect class="node active" x="555" y="110" width="190" height="62" rx="8" />
+                <text class="tiny" x="573" y="133" fill="#e7a34a">03 / REVIEW</text>
+                <text class="label" x="573" y="157" fill="#f5f1e8">QA + 人工确认</text>
+                <text class="sub" x="573" y="197">证据、医学、版权、隐私</text>
+
+                <rect class="node" x="800" y="110" width="170" height="62" rx="8" />
+                <text class="tiny" x="818" y="133" fill="#d86a3a">04 / RELEASE</text>
+                <text class="label" x="818" y="157" fill="#f5f1e8">微信公众号</text>
+                <text class="sub" x="818" y="197">作者手动上传与发布</text>
+
+                <text class="tiny" x="45" y="337" fill="#b7cbd1">KNOWLEDGE</text>
+                <text class="tiny" x="327" y="337" fill="#b7cbd1">ORCHESTRATION</text>
+                <text class="tiny" x="600" y="337" fill="#e7a34a">CONTROL GATE</text>
+                <text class="tiny" x="858" y="337" fill="#e7a34a">GOAL LINE</text>
+              </g>
+            </svg>
+          </div>
+
+          <div class="station-grid" aria-label="流程站点">
+            <article class="station"><span class="number">01 / SOURCE</span><h3>Obsidian</h3><p>保存来源、研究笔记、临床问题和可长期复用的知识。</p></article>
+            <article class="station"><span class="number">02 / PLAY</span><h3>Codex</h3><p>把素材整理成读者问题、文章结构、主张台账和配图计划。</p></article>
+            <article class="station"><span class="number">03 / REVIEW</span><h3>QA + 人工确认</h3><p>核查证据直接性、医学表述、隐私、版权和发布边界。</p></article>
+            <article class="station"><span class="number">04 / RELEASE</span><h3>微信公众号</h3><p>只把通过检查并经作者确认的内容包，手动带入发布后台。</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section principles" id="principles">
+        <div class="shell">
+          <div class="section-header">
+            <div>
+              <div class="eyebrow" style="color: var(--green)">CONTROL GATES / SAFETY</div>
+              <h2>视觉可以有推进感，证据边界必须保持安静而清楚。</h2>
+            </div>
+            <p>工作流的目标不是让模型替代作者，而是让每个判断都能被追溯、复核和暂停。</p>
+          </div>
+          <div class="principle-grid">
+            <article class="principle"><div class="icon">↗</div><h3>证据分层</h3><p>区分直接证据、综合解释、合理假设和尚未核实的内容，不用流畅措辞掩盖缺口。</p></article>
+            <article class="principle"><div class="icon">⌁</div><h3>本地优先</h3><p>私人 Obsidian 库、未公开研究资料、患者信息和凭证不进入公开仓库。</p></article>
+            <article class="principle"><div class="icon">⚑</div><h3>人工复核</h3><p>医学边界、作者署名、版权处理和最终发布都保留在作者可以停止的控制点。</p></article>
+            <article class="principle"><div class="icon">□</div><h3>可回写</h3><p>发布链接、读者反馈和修改意见回到 Obsidian，形成下一轮创作的可检索记录。</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="quick-start">
+        <div class="shell quick-grid">
+          <div>
+            <div class="eyebrow" style="color: var(--green)">QUICK START / 04 STEPS</div>
+            <h2>从一篇笔记开始，不必先搭建一个大平台。</h2>
+            <p class="muted">预览版把一次创作拆成几个小而可检查的内容包，适合先用真实需求验证，再逐步扩展模板和自动化。</p>
+            <div class="steps">
+              <div class="step"><div><strong>选定一条来源笔记</strong><span>明确主题、来源和目标读者。</span></div></div>
+              <div class="step"><div><strong>运行来源分诊提示词</strong><span>建立主张台账，标记证据状态和缺口。</span></div></div>
+              <div class="step"><div><strong>形成文章与视觉计划</strong><span>正文、图片、流程图和版权记录分开管理。</span></div></div>
+              <div class="step"><div><strong>通过检查后人工发布</strong><span>把反馈写回 Obsidian，保留发布记录。</span></div></div>
+            </div>
+          </div>
+          <aside class="example-card">
+            <div class="tag-row"><span class="tag">LOCAL EXAMPLE</span><span class="tag">CELL 2025</span><span class="tag">CLAIM LEDGER</span></div>
+            <h3>UniPert-G2CP：从分子表示到表型建模</h3>
+            <p>这是预览版接入的第一篇示例：把一篇计算生物学论文转译成面向科研人员的微信公众号文章，同时保留直接证据、综合解释、局限性和配图资源的边界。</p>
+            <a href="../examples/unipert-g2cp/README.md">查看示例接入说明 →</a>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section release" id="release-status">
+        <div class="shell">
+          <div class="section-header">
+            <div>
+              <div class="eyebrow">RELEASE STATUS / PREVIEW ONLY</div>
+              <h2>现在可以阅读、试跑和修改；公开发布仍在达阵线之外。</h2>
+            </div>
+            <p style="color: var(--slate)">这不是自动发布器，也不是医学签署系统。它是一套有边界的内容生产工作台。</p>
+          </div>
+          <div class="release-grid">
+            <article class="release-card ready"><h3>已就绪</h3><ul><li>工作流、模板、提示词和示例目录</li><li>本地预览主界面与流程图</li><li>许可证、公开前审查和内容版权说明草案</li></ul></article>
+            <article class="release-card waiting"><h3>等待作者确认</h3><ul><li>最终仓库名称、可见性和许可证条款</li><li>示例文章与配图的公开范围</li><li>GitHub 创建、提交、推送和 Pages 发布</li></ul></article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="shell"><span>Codex + Obsidian 微信公众号内容创作工作流 · v0 preview</span><p><a href="../README.md">README</a> · <a href="./main-interface-design.md">视觉规范</a> · <a href="./release-readiness.md">公开前审查</a></p></div>
+    </footer>
+  </body>
+</html>

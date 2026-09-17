@@ -1,0 +1,36 @@
+# Local and OS files
+.DS_Store
+.workflow/*/state.local.json
+.venv/
+__pycache__/
+
+# Secrets and private configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+credentials.json
+tokens.json
+cookies.json
+
+# Private material must stay outside the public repository
+private/
+personal/
+patient-data/
+unpublished/
+local-config/
+
+# Generated temporary material
+tmp/
+output/tmp/
+*.log
+
+# Large or potentially sensitive raw data
+*.sqlite
+*.db
+*.parquet
+*.xlsx
+*.xls
+

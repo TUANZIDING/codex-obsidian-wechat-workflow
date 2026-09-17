@@ -1,0 +1,7 @@
+claim_id	source_location	claim	state	evidence_state	qa_note
+UPG-001	local-note: Introduction	Genetic and chemical screens differ in library scale, assay format and molecular modality	ready	direct	保留为研究背景
+UPG-002	local-note: Results 109-125	G2CP uses genetic pretraining followed by chemical fine-tuning	ready	direct	需保留数据集和任务语境
+UPG-003	local-note: Results 121	At 20% chemical training fraction, the paper reports a 375.4% overall PCC improvement with full genetic pretraining	ready	direct	不得脱离原始比较条件单独宣传
+UPG-004	local-note: Results 149	ER agonists showed the highest context sensitivity in MCF7 with rho=0.73	ready	direct	计算关联，不等同于临床疗效
+UPG-005	local-note: Discussion 175-179	The framework remains limited by compute, non-coding perturbations and cross-assay phenotype alignment	ready	direct	应作为结尾边界
+
