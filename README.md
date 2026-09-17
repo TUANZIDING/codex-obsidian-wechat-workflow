@@ -6,6 +6,12 @@
 
 项目主页：[tuanziding.github.io/codex-obsidian-wechat-workflow](https://tuanziding.github.io/codex-obsidian-wechat-workflow/)
 
+<p align="center">
+  <img src="docs/assets/workflow-hero.png" alt="美式橄榄球战术板风格的科研内容创作工作流：来源笔记经过科研提炼和人工确认后，推进到微信公众号发布线" width="100%">
+</p>
+
+<p align="center"><em>Obsidian 来源笔记 → Codex 研究提炼 → QA 与人工确认 → 微信公众号受控发布</em></p>
+
 它把三个系统分开，但让它们能够连续协作：
 
 ```text
@@ -24,7 +30,7 @@ GitHub在这个项目中首先承担“工作流代码、模板、规则和可�
 - 保留来源、证据强度、修改理由和人工确认记录；
 - 支持医学科研、医学教学、AI实践和原创作品展示等内容类型；
 - 将准备、审校、批准、上传、发布、复盘分成不同状态；
-- 在公开到GitHub之前，先能在本地运行、阅读和检查。
+- 在公开发布前，先能在本地运行、阅读和检查。
 
 ## 当前不做的事
 
