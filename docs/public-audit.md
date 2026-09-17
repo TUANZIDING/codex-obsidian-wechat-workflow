@@ -20,6 +20,7 @@ Only `codex-obsidian-wechat-workflow-preview/` was audited. The parent workspace
 - [x] Public example entry no longer contains parent-workspace paths or local article/image references.
 - [x] Preview is isolated in its own local Git repository with an initial commit; no remote is configured.
 - [x] Public repository `TUANZIDING/codex-obsidian-wechat-workflow` was created and `main` was pushed after user confirmation.
+- [x] GitHub Pages was enabled from `main /docs`; the first build completed successfully and the homepage, hero image, and workflow document returned HTTP 200.
 
 ## Blockers before public push
 
@@ -34,6 +35,7 @@ Only `codex-obsidian-wechat-workflow-preview/` was audited. The parent workspace
 - Visibility: public
 - Default branch: `main`
 - License boundary: MIT for workflow materials; `CONTENT-NOTICE.md` excludes the hero image and other personal or third-party content from the default MIT grant.
+- Pages: <https://tuanziding.github.io/codex-obsidian-wechat-workflow/>
 
 ## Important boundary
 

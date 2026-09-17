@@ -4,6 +4,8 @@
 
 公开仓库：[github.com/TUANZIDING/codex-obsidian-wechat-workflow](https://github.com/TUANZIDING/codex-obsidian-wechat-workflow)
 
+项目主页：[tuanziding.github.io/codex-obsidian-wechat-workflow](https://tuanziding.github.io/codex-obsidian-wechat-workflow/)
+
 它把三个系统分开，但让它们能够连续协作：
 
 ```text
