@@ -16,6 +16,7 @@ Only `codex-obsidian-wechat-workflow-preview/` was audited. The parent workspace
 - [x] Public release and WeChat publication remain separate approval gates.
 - [x] Root license draft and content/asset boundary notice are present.
 - [x] Browser-rendered main interface preview and editable SVG flowchart are present.
+- [x] Beginner-safe Obsidian section and companion visual are present in the public interface.
 - [x] Local HTTP response, HTML parsing, hero asset reference, flowchart labels, and reduced-motion CSS checks passed.
 - [x] Public example entry no longer contains parent-workspace paths or local article/image references.
 - [x] Preview is isolated in its own local Git repository with an initial commit; no remote is configured.

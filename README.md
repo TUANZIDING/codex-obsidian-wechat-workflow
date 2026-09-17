@@ -50,6 +50,7 @@ codex-obsidian-wechat-workflow-preview/
 ├── docs/
 │   ├── index.html                 # GitHub Pages 主界面预览
 │   ├── assets/workflow-hero.png   # 无文字主视觉
+│   ├── assets/obsidian-safe-guide.png # 安全上手配套插图
 │   ├── architecture.md
 │   ├── workflow.md
 │   ├── codex-runbook.md

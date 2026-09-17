@@ -35,7 +35,7 @@ brand_fidelity: 4/10
 - Spacing: 8px base rhythm with larger 24/40/64px section intervals.
 - Shape: squared or lightly rounded tactical-board panels, thin chalk-like borders and restrained shadows; avoid excessive pill controls and dashboard-card repetition.
 - Motion: a short play-line tracing from source to release on hover or page entry; no bouncing footballs or decorative motion; honor `prefers-reduced-motion`.
-- Illustration: one no-text hero illustration showing a dark field/playbook board, chalk yard lines, an orange football and a controlled drive from Obsidian source notes through Codex toward the WeChat release gate.
+- Illustration: a no-text hero illustration showing a dark field/playbook board, chalk yard lines, an orange football and a controlled drive from Obsidian source notes through Codex toward the WeChat release gate; a second companion illustration explains the beginner-safe setup and manual approval boundary.
 - Flowchart: exact Chinese labels rendered as HTML/SVG, not generated inside the image.
 
 ## Football visual rules
@@ -69,11 +69,12 @@ The hero may feel like a playbook spread, but the lower sections should return t
 
 1. Hero: project title, one-sentence promise, preview status and primary “查看工作流” action on a dark tactical board.
 2. Hero illustration: local no-text football/playbook visual with molecular and note-card details kept subtle.
-3. Workflow map: four downfield stations—Obsidian → Codex → QA/人工确认 → 微信公众号—with a separate GitHub boundary lane.
-4. Operating principles: evidence, privacy, medical review, user control.
-5. Quick start: choose an Obsidian source note, run a Codex prompt, create a content package.
-6. Example: UniPert-G2CP article integration, clearly marked as local preview.
-7. Release status: what is ready, what is blocked, and what requires user approval.
+3. Beginner-safe visual: independent vault → optional plugin boundary → selected notes → Codex → manual approval.
+4. Workflow map: four downfield stations—Obsidian → Codex → QA/人工确认 → 微信公众号—with a separate GitHub boundary lane.
+5. Operating principles: evidence, privacy, medical review, user control.
+6. Quick start: choose an Obsidian source note, run a Codex prompt, create a content package.
+7. Example: UniPert-G2CP article integration, clearly marked as local preview.
+8. Release status: what is ready, what is blocked, and what requires user approval.
 
 ## Asset rule
 

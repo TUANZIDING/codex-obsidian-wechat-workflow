@@ -15,3 +15,4 @@ Before publishing a sample article or image on GitHub, confirm its source, reuse
 ## Preview asset record
 
 - `docs/assets/workflow-hero.png`: no-text hero illustration generated for this project with the requested medical-research and American-football-playbook visual direction. It is included as a project visual, but is not covered by the repository MIT license; reuse outside this repository requires separate permission.
+- `docs/assets/obsidian-safe-guide.png`: no-text companion illustration for the beginner-safe Obsidian setup section. It is included as a project visual, but is not covered by the repository MIT license; reuse outside this repository requires separate permission.
