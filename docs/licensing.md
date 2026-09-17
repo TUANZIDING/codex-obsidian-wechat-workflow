@@ -12,14 +12,14 @@ Reason: the project is intended to be reusable by other medical educators and re
 
 Keep original article drafts, personal brand material, screenshots, generated images, and third-party material outside the default MIT grant unless each item is explicitly marked otherwise. `CONTENT-NOTICE.md` records this boundary.
 
-## Current preview decision
+## Confirmed public-repository decision
 
 - Root license: MIT;
 - Content and asset boundary: `CONTENT-NOTICE.md`;
 - Copyright holder shown in the draft license: Ding Haixiang;
-- Before public push: confirm the displayed copyright name and whether any example image or article should use a different license.
+- The workflow layer is ready to be published under MIT.
+- The article drafts, personal brand material, scientific source material and generated hero image remain outside the default MIT grant unless separately marked.
 
 ## Not selected
 
 CC BY-NC was not selected for the workflow repository because the user's longer-term plan may include paid teaching, training, or workflow services. If a particular article or image should prohibit commercial reuse, mark that item separately rather than imposing NC on the entire workflow.
-

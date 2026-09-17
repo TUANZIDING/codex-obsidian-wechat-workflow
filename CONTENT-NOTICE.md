@@ -14,4 +14,4 @@ Before publishing a sample article or image on GitHub, confirm its source, reuse
 
 ## Preview asset record
 
-- `docs/assets/workflow-hero.png`: no-text hero illustration generated for this local preview with the requested medical-research and American-football-playbook visual direction. It is not assumed to be covered by the repository MIT license; retain the generation record and decide its public reuse terms before pushing.
+- `docs/assets/workflow-hero.png`: no-text hero illustration generated for this project with the requested medical-research and American-football-playbook visual direction. It is included as a project visual, but is not covered by the repository MIT license; reuse outside this repository requires separate permission.

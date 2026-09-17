@@ -22,11 +22,10 @@ Only `codex-obsidian-wechat-workflow-preview/` was audited. The parent workspace
 
 ## Blockers before public push
 
-- [ ] Confirm the copyright holder name in `LICENSE`.
-- [ ] Decide whether the original article and Image Gen assets are included, excluded, or separately licensed.
-- [ ] Decide whether `docs/assets/workflow-hero.png` is included, excluded, or separately licensed.
+- [x] Copyright holder name in `LICENSE` is set to Ding Haixiang.
+- [x] The generated hero image is included with a separate non-MIT asset notice; original article and third-party material remain excluded.
 - [ ] Re-run a release scan after any final content or asset changes.
-- [ ] User confirms repository name, visibility, license and push.
+- [x] User confirmed a public repository and MIT for the workflow layer.
 
 ## Important boundary
 
