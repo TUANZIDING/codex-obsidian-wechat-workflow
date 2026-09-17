@@ -1,6 +1,6 @@
 # Codex + Obsidian 微信公众号内容创作工作流
 
-这是一个面向个人医学科研与教学创作者的本地优先工作流预览版。
+这是一个面向个人医学科研与教学创作者的本地优先工作流公开版。
 
 公开仓库：[github.com/TUANZIDING/codex-obsidian-wechat-workflow](https://github.com/TUANZIDING/codex-obsidian-wechat-workflow)
 
@@ -11,6 +11,20 @@
 </p>
 
 <p align="center"><em>Obsidian 来源笔记 → Codex 研究提炼 → QA 与人工确认 → 微信公众号受控发布</em></p>
+
+## 给小白的安全上手
+
+<p align="center">
+  <img src="docs/assets/obsidian-safe-guide.png" alt="安全上手工作流：独立 Obsidian 库经过可选插件边界、素材筛选和 Codex 提炼，最后由本人确认后发布" width="100%">
+</p>
+
+这套流程不要求你安装第三方插件，也不要求你把密码交给 Codex：
+
+- **插件可选**：先用 Obsidian 自带功能和模板完成第一篇，再逐个安装、逐个测试社区插件；
+- **凭证不外传**：密码、Cookie、验证码、API key、患者资料和私人库内容不进入笔记、提示词或 GitHub；
+- **人工达阵**：微信公众号登录、手机验证、预览和点击发表始终由账号所有者本人完成。
+
+完整说明见：[Obsidian 小白安全上手指南](docs/obsidian-beginner-safe-setup.md)。
 
 它把三个系统分开，但让它们能够连续协作：
 
