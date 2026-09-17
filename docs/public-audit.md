@@ -19,13 +19,21 @@ Only `codex-obsidian-wechat-workflow-preview/` was audited. The parent workspace
 - [x] Local HTTP response, HTML parsing, hero asset reference, flowchart labels, and reduced-motion CSS checks passed.
 - [x] Public example entry no longer contains parent-workspace paths or local article/image references.
 - [x] Preview is isolated in its own local Git repository with an initial commit; no remote is configured.
+- [x] Public repository `TUANZIDING/codex-obsidian-wechat-workflow` was created and `main` was pushed after user confirmation.
 
 ## Blockers before public push
 
 - [x] Copyright holder name in `LICENSE` is set to Ding Haixiang.
 - [x] The generated hero image is included with a separate non-MIT asset notice; original article and third-party material remain excluded.
-- [ ] Re-run a release scan after any final content or asset changes.
+- [x] Release scan was re-run after final content and asset changes.
 - [x] User confirmed a public repository and MIT for the workflow layer.
+
+## Public repository result
+
+- Repository: <https://github.com/TUANZIDING/codex-obsidian-wechat-workflow>
+- Visibility: public
+- Default branch: `main`
+- License boundary: MIT for workflow materials; `CONTENT-NOTICE.md` excludes the hero image and other personal or third-party content from the default MIT grant.
 
 ## Important boundary
 

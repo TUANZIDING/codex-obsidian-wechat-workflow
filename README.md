@@ -2,6 +2,8 @@
 
 这是一个面向个人医学科研与教学创作者的本地优先工作流预览版。
 
+公开仓库：[github.com/TUANZIDING/codex-obsidian-wechat-workflow](https://github.com/TUANZIDING/codex-obsidian-wechat-workflow)
+
 它把三个系统分开，但让它们能够连续协作：
 
 ```text
