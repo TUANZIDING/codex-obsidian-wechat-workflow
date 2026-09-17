@@ -17,12 +17,13 @@ Only `codex-obsidian-wechat-workflow-preview/` was audited. The parent workspace
 - [x] Root license draft and content/asset boundary notice are present.
 - [x] Browser-rendered main interface preview and editable SVG flowchart are present.
 - [x] Local HTTP response, HTML parsing, hero asset reference, flowchart labels, and reduced-motion CSS checks passed.
+- [x] Public example entry no longer contains parent-workspace paths or local article/image references.
+- [x] Preview is isolated in its own local Git repository with an initial commit; no remote is configured.
 
 ## Blockers before public push
 
 - [ ] Confirm the copyright holder name in `LICENSE`.
 - [ ] Decide whether the original article and Image Gen assets are included, excluded, or separately licensed.
-- [ ] Replace the preview-only relative references in `examples/unipert-g2cp/README.md` with a release-safe example package, or remove that example before push.
 - [ ] Decide whether `docs/assets/workflow-hero.png` is included, excluded, or separately licensed.
 - [ ] Re-run a release scan after any final content or asset changes.
 - [ ] User confirms repository name, visibility, license and push.
