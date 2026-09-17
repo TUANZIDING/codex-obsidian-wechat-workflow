@@ -21,6 +21,8 @@ personal/
 patient-data/
 unpublished/
 local-config/
+.obsidian/
+.trash/
 
 # Generated temporary material
 tmp/
@@ -33,4 +35,3 @@ output/tmp/
 *.parquet
 *.xlsx
 *.xls
-

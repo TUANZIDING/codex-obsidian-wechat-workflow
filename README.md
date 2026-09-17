@@ -57,6 +57,7 @@ codex-obsidian-wechat-workflow-preview/
 │   ├── content-package-spec.md
 │   ├── approval-gates.md
 │   ├── release-readiness.md
+│   ├── obsidian-beginner-safe-setup.md
 │   ├── roadmap.md
 │   └── adr/0001-local-first-public-boundary.md
 ├── prompts/
@@ -121,6 +122,7 @@ python3 -m http.server 8788
 - `docs/workflow.md`：全流程和状态机；
 - `docs/codex-runbook.md`：实际使用Codex的操作顺序；
 - `docs/approval-gates.md`：哪些动作必须停下来等用户确认；
+- `docs/obsidian-beginner-safe-setup.md`：第三方插件安装、人工确认和密码/隐私保护指南；
 - `docs/main-interface-design.md`：GitHub Pages主界面的视觉和流程图设计 checkpoint；
 - `docs/public-audit.md`：当前公开前审查结果；
 - `docs/licensing.md`：MIT与原创内容/配图边界方案；
